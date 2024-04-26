@@ -1,0 +1,82 @@
+APIs
+
+# Add a new plan
+
+curl --location 'http://127.0.0.1:5000/add_plan' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "test",
+    "cost": 299,
+    "validity": 60,
+    "status": "Active"
+}'
+
+
+# Get all active plan
+
+curl --location --request GET 'http://127.0.0.1:5000/get_all_active_plans' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "test",
+    "cost": 199,
+    "validity": 30,
+    "status": "Active"
+}'
+
+
+# Mark plan inactive
+
+curl --location --request PUT 'http://127.0.0.1:5000/mark_plan_inactive/1'
+
+
+
+# Register a customer
+
+curl --location 'http://127.0.0.1:5000/add_customer' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Prabhat",
+    "mobile": "7303315537",
+    "dob": "27-04-1992",
+    "email": "john@example.com",
+    "aadhar": "123456789012",
+    "plan_id": 1
+}'
+
+
+# Get all customers with their active plan
+
+curl --location --request GET 'http://127.0.0.1:5000/get_all_customers' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "John Doe",
+    "mobile": "7303315539",
+    "dob": "27-04-1992",
+    "email": "john@example.com",
+    "aadhar": "123456789012",
+    "assigned_mobile_number": "9876543210",
+    "plan_id": 1
+}'
+
+
+# Update customer plan (Renew plan, Upate a new plan, upgrade or downgrade to any plan)
+
+curl --location --request PUT 'http://127.0.0.1:5000/update_customer_plan/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "plan_id": 2
+}'
+
+
+
+# Home Page, Renders All customers with their Active Plans
+
+http://127.0.0.1:5000/
+
+
+# Start Server
+
+python3 app.py
+
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers with Plans</title>
+</head>
+<body>
+    <h1>Customers with Plans</h1>
+    <ul>
+        {% for customer in customers_with_plans %}
+        <li>
+            <strong>Id:</strong> {{ customer.id }}<br>
+            <strong>Name:</strong> {{ customer.name }}<br>
+            <strong>Email:</strong> {{ customer.email }}<br>
+            <strong>Mobile Number:</strong> {{ customer.mobile }}<br>
+            <strong>Adhar Number:</strong> {{ customer.aadhar }}<br>
+            <strong>Registration Date:</strong> {{ customer.registration_date }}<br>
+            <strong>Plan Name:</strong> {{ customer.plan_name }}<br>
+            <strong>Plan Start Date:</strong> {{ customer.plan_start_date }}<br>
+            <strong>Plan Expiry Date:</strong> {{ customer.plan_expiry_date }}<br>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
